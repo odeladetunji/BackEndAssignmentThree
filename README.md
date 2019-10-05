@@ -1,2 +1,2 @@
 # betaService1
-RetrievingBalance API
+retrive balance and transaction history
