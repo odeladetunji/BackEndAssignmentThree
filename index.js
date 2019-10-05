@@ -8,8 +8,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 // requiring routes!
-const add_money = require('./routes/add_money');
-const remove_money = require('./routes/remove_money');
+const retriveBalance = require('./routes/retrive_balance');
+const transactionHistory = require('./routes/show_transaction_history');
 
 //express settings
 app.set('views', path.join(__dirname, 'views'));
@@ -24,8 +24,8 @@ app.use(cookieParser());
 app.set('view engine', 'ejs');
 
 //routes  // routes
-app.use('/add_money', add_money);
-app.use('/remove_money', remove_money);
+app.use('/retriveBalance', retriveBalance);
+app.use('/transactionHistory', transactionHistory);
 
 server.listen(8011, function(){
     console.log("Second Api is now Running");
