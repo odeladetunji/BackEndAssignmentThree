@@ -20,15 +20,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json());
 app.use(cookieParser());
-//app.options(cors());
-app.set('view engine', 'ejs');
 
 //routes  // routes
 app.use('/retriveBalance', retriveBalance);
 app.use('/transactionHistory', transactionHistory);
 
 server.listen(8011, function(){
-    console.log("Second Api is now Running");
+    console.log("BetaService1 microservice is now running");
 });
 
 module.export = app;
