@@ -11,19 +11,21 @@ router.get('/', function(req, res){
 
     mongo.connect(mongooseUrl, function(err, db){
         if(err) throw err;
-        lastRecord = db.collection('wallet').find({title: 'wallet'}).sort({_id: 1});
+        lastRecord = db.collection('wallet').find({title: 'wallet'}).sort({_id: -1});
         lastRecord.forEach(function(doc, err){
             if(err) throw err;
             console.log(doc);
-            doc.map(element => {
-                transactionHistory.push(element.amount);
-            });
+                transactionHistory.push(doc);
+            db.close();
         });
-        
-        db.close();
     });
-
-    res.send(transactionHistory);
+    
+    // using this method since data is small
+    setTimeout(() => {
+        res.json({
+            'Transaction History': transactionHistory
+        });
+    }, 20)
 });
 
 module.exports = router;
