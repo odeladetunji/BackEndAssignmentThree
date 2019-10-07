@@ -8,7 +8,7 @@ const mongo = require('mongodb');
 router.get('/', function(req, res){
     let lastRecord = null;
     let balance = null;
-    let mongooseUrl = 'mongodb://127.0.0.1:27017/wallet';
+    let mongooseUrl = 'mongodb://127.0.0.1:27017/wallet'; 
     mongo.connect(mongooseUrl, function(err, db){
         if(err) throw err;
         lastRecord = db.collection('wallet').find({title: 'wallet'}).sort({_id: -1}).limit(1);
