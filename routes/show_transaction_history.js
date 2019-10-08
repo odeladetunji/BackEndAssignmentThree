@@ -15,8 +15,7 @@ router.get('/', function(req, res){
         lastRecord.forEach(function(doc, err){
             if(err) throw err;
             console.log(doc);
-                transactionHistory.push(doc);
-            db.close();
+            transactionHistory.push(doc);
         });
     });
     
